@@ -9,6 +9,7 @@ dist/wp-content/cache/
 dist/wp-content/upgrade/
 dist/wp-content/uploads/
 dist/wp-content/themes/*
+dist/wp-content/index.php
 dist/wp-content/languages/**/*.po
 dist/wp-content/languages/**/*.mo
 dist/wp-content/wp-cache-config.php
