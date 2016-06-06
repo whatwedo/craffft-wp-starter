@@ -134,6 +134,7 @@ Text Domain: ${PACKAGE_NAME}
 THEMECSS
 
 echo "$PROJECT_NAME" > src/wp-content/themes/$PACKAGE_NAME/index.php
+curl "http://placehold.it/1200x900/fff/000.png?text=${WP_NAME}" -o src/wp-content/themes/$PACKAGE_NAME/screenshot.png
 
 echo "- starte Vagrant"
 
