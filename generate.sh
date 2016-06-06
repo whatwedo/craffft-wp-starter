@@ -29,10 +29,6 @@ echo "Geben Sie eine Beschreibung für das Projekt ein, z.B. \"WordPress Templat
 read DESCRIPTION
 echo " "
 
-echo "WordPress Seitenname, z.B. \"whatwedo.ch\""
-read WP_NAME
-echo " "
-
 echo "WordPress Admin-Benutzername"
 read WP_USERNAME
 echo " "
