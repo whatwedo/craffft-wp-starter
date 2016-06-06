@@ -1,0 +1,21 @@
+{
+  "server": {
+    "options": {
+      "browsersync": {
+        "server": {
+          "baseDir": "dist"
+        }
+      }
+    }
+  },
+  "copy": {
+    "src": [
+      "**/*.pot",
+      "**/*.txt",
+      "**/*.eot",
+      "**/*.woff",
+      "**/*.ttf",
+      "**/lab.js"
+    ]
+  }
+}
