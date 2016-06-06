@@ -69,6 +69,7 @@ sed -i.bak 's/\(\s*\)#\(.*\)apache\.sh/\1\2apache\.sh/' Vagrantfile # provision 
 sed -i.bak 's/\(\s*\)#\(.*\)mysql\.sh/\1\2mysql\.sh/' Vagrantfile # provision mysql
 sed -i.bak 's/\(\s*\)#\(.*\)nodejs\.sh/\1\2nodejs\.sh/' Vagrantfile # provision nodejs
 sed -i.bak 's/\(\s*\)#\(.*\)wp-cli\.sh/\1\2wp-cli\.sh/' Vagrantfile # provision wp-cli
+sed -i.bak 's/\(\s*\)#\(.*\)vm-init\.sh/\1\2vm-init\.sh/' Vagrantfile # provision vm-init.sh
 rm Vagrantfile.bak
 
 echo "- Weitere Daten"
@@ -111,7 +112,7 @@ do
         replace=${REPLACES[$i]}
         # Note the "" after -i, needed in OS X
         sed -i.bak "s/${search}/${replace}/g" $f
-        
+
     done
     rm $f.bak
 done
@@ -126,14 +127,13 @@ Author URI: https://whatwedo.ch
 Version: 1.0
 Text Domain: ${PACKAGE_NAME}
 */
+THEMECSS
 
 echo "$PROJECT_NAME" > src/wp-content/themes/$PACKAGE_NAME/index.php
 
-THEMECSS
-
 echo "- starte Vagrant"
 
-vagrant up 
+vagrant up
 
 echo "- installiere WordPress und Abhängigkeiten"
 
