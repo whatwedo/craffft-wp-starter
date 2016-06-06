@@ -29,6 +29,10 @@ echo "Geben Sie eine Beschreibung für das Projekt ein, z.B. \"WordPress Templat
 read DESCRIPTION
 echo " "
 
+echo "WordPress Seitenname, z.B. \"whatwedo GmbH\""
+read WP_NAME
+echo " "
+
 echo "WordPress Admin-Benutzername"
 read WP_USERNAME
 echo " "
@@ -141,7 +145,7 @@ vagrant ssh -c 'cd /vagrant && npm set progress=false && npm install craffft --s
 
 echo "- konfiguriere WordPress"
 
-vagrant ssh -c "cd /vagrant/dist && wp core install --url='http://${LOCAL_ADDRESS}/' --title='${PROJECT_NAME}' --admin_user='${WP_USERNAME}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}' --skip-email && wp theme activate ${PACKAGE_NAME}"
+vagrant ssh -c "cd /vagrant/dist && wp core install --url='http://${LOCAL_ADDRESS}/' --title='${WP_NAME}' --admin_user='${WP_USERNAME}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}' --skip-email && wp theme activate ${PACKAGE_NAME}"
 
 echo " "
 echo "----------------------------"
