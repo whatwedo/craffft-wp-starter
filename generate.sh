@@ -29,6 +29,23 @@ echo "Geben Sie eine Beschreibung für das Projekt ein, z.B. \"WordPress Templat
 read DESCRIPTION
 echo " "
 
+echo "WordPress Seitenname, z.B. \"whatwedo.ch\""
+read WP_NAME
+echo " "
+
+echo "WordPress Admin-Benutzername"
+read WP_USERNAME
+echo " "
+
+echo "WordPress Admin-Passwort"
+read WP_PASSWORD
+echo " "
+
+echo "WordPress Admin E-Mail"
+read WP_EMAIL
+echo " "
+
+
 echo " "
 echo "-----------------------------"
 echo " Das Projekt wird generiert. "
@@ -55,6 +72,7 @@ sed -i.bak 's/\(\s*\)#\(.*\)php\.sh/\1\2php\.sh/' Vagrantfile # provision php
 sed -i.bak 's/\(\s*\)#\(.*\)apache\.sh/\1\2apache\.sh/' Vagrantfile # provision apache
 sed -i.bak 's/\(\s*\)#\(.*\)mysql\.sh/\1\2mysql\.sh/' Vagrantfile # provision mysql
 sed -i.bak 's/\(\s*\)#\(.*\)nodejs\.sh/\1\2nodejs\.sh/' Vagrantfile # provision nodejs
+sed -i.bak 's/\(\s*\)#\(.*\)wp-cli\.sh/\1\2wp-cli\.sh/' Vagrantfile # provision wp-cli
 rm Vagrantfile.bak
 
 echo "- Weitere Daten"
@@ -74,6 +92,7 @@ FILES=(
     "tsd.json"
     "vm-init.sh"
     "dist/local-config-generator.php"
+    "dist/wp-config.php"
 )
 
 
@@ -118,9 +137,13 @@ echo "- starte Vagrant"
 
 vagrant up 
 
-echo "- installiere WP"
+echo "- installiere WordPress und Abhängigkeiten"
 
 vagrant ssh -c 'cd /vagrant && npm install craffft --save-dev && make install'
+
+echo "- konfiguriere WordPress"
+
+vagrant ssh -c "cd /vagrant/dist && wp core install --url='http://${LOCAL_ADDRESS}/' --title='${PROJECT_NAME}' --admin_user='${WP_USERNAME}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}' --skip-email"
 
 echo " "
 echo "----------------------------"
