@@ -39,8 +39,8 @@ wordpress_plugins_install:
 	for f in ./resources/plugins/*.zip; do unzip -q $$f -d ./dist/wp-content/plugins; done || true
 
 db_dump:
-	wp db export /vagrant/sql/initial.sql
+	wp db export /vagrant/sql/initial.sql --path="/vagrant/dist"
 
 db_import:
-	wp db reset --yes
-	wp db import /vagrant/sql/initial.sql
+	wp db reset --yes --path="/vagrant/dist"
+	wp db import /vagrant/sql/initial.sql --path="/vagrant/dist"
