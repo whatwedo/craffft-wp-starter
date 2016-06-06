@@ -151,3 +151,4 @@ echo " Erfolgreich abgeschlossen. "
 echo "----------------------------"
 echo " "
 
+rm -- "$0"
