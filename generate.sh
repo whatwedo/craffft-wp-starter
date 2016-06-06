@@ -131,6 +131,8 @@ Version: 1.0
 Text Domain: ${PACKAGE_NAME}
 */
 
+echo "$PROJECT_NAME" > src/wp-content/themes/$PACKAGE_NAME/index.php
+
 THEMECSS
 
 echo "- starte Vagrant"
@@ -143,7 +145,7 @@ vagrant ssh -c 'cd /vagrant && npm set progress=false && npm install craffft --s
 
 echo "- konfiguriere WordPress"
 
-vagrant ssh -c "cd /vagrant/dist && wp core install --url='http://${LOCAL_ADDRESS}/' --title='${PROJECT_NAME}' --admin_user='${WP_USERNAME}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}' --skip-email"
+vagrant ssh -c "cd /vagrant/dist && wp core install --url='http://${LOCAL_ADDRESS}/' --title='${PROJECT_NAME}' --admin_user='${WP_USERNAME}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}' --skip-email && wp theme activate ${PACKAGE_NAME}"
 
 echo " "
 echo "----------------------------"
