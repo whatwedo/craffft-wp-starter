@@ -1,6 +1,6 @@
 ### WordPress ###
 dist/*.log
-dist/wp-config.php
+dist/local-config.php
 dist/wp-content/advanced-cache.php
 dist/wp-content/backup-db/
 dist/wp-content/backups/
@@ -11,6 +11,7 @@ dist/wp-content/uploads/
 dist/wp-content/wp-cache-config.php
 dist/wp-content/plugins/hello.php
 dist/wp-*.php
+!dist/wp-config.php
 dist/.htaccess
 dist/license.txt
 dist/readme.html

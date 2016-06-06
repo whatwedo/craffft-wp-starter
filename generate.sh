@@ -139,7 +139,7 @@ vagrant up
 
 echo "- installiere WordPress und Abhängigkeiten"
 
-vagrant ssh -c 'cd /vagrant && npm install craffft --save-dev && make install'
+vagrant ssh -c 'cd /vagrant && npm set progress=false && npm install craffft --save-dev && make install'
 
 echo "- konfiguriere WordPress"
 
