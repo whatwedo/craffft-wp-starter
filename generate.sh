@@ -62,6 +62,7 @@ declare -a FILES
 FILES=(
     ".gitignore"
     ".jshintrc"
+    ".editorconfig"
     "CHANGELOG.md"
     "Dockerfile"
     "Makefile"
