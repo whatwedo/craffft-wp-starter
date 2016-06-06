@@ -119,8 +119,7 @@ vagrant up
 
 echo "- installiere WP"
 
-vagrant ssh -c 'npm install craffft --save-dev'
-vagrant ssh -c 'make install'
+vagrant ssh -c 'cd /vagrant && npm install craffft --save-dev && make install'
 
 echo " "
 echo "----------------------------"
