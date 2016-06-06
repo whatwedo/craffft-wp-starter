@@ -94,9 +94,10 @@ do
         search=$i
         replace=${REPLACES[$i]}
         # Note the "" after -i, needed in OS X
-        sed -i.bak "" "s/${search}/${replace}/g" $f
-        rm $f.bak
+        sed -i.bak "s/${search}/${replace}/g" $f
+        
     done
+    rm $f.bak
 done
 
 # add template files
