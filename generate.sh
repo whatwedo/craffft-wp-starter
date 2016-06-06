@@ -11,18 +11,23 @@ REPO_URL="https://raw.githubusercontent.com/whatwedo/craffft-wp-starter/master/t
 
 echo "Geben Sie einen Projektnamen, z.B. \"whatwedo Webseite\""
 read PROJECT_NAME
+echo " "
 
 echo "Geben Sie einen Paketnamen für das Projekt ein, z.B. \"whatwedo-website\""
 read PACKAGE_NAME
+echo " "
 
 echo "Geben Sie die öffentliche Adresse (mit Protokoll) für das Projekt ein, z.B. \"https://whatwedo.ch\""
 read PUBLIC_ADDRESS
+echo " "
 
 echo "Geben Sie die lokale Adresse für das Projekt ein, z.B. \"whatwedo.dev\""
 read LOCAL_ADDRESS
+echo " "
 
 echo "Geben Sie eine Beschreibung für das Projekt ein, z.B. \"WordPress Template und Logik der Webseite von whatwedo GmbH\""
 read DESCRIPTION
+echo " "
 
 echo " "
 echo "-----------------------------"
@@ -49,6 +54,7 @@ sed -i.bak s/^public_folder.*$/public_folder\ =\ \"\\/vagrant\\/dist\"/ Vagrantf
 sed -i.bak 's/\(\s*\)#\(.*\)php\.sh/\1\2php\.sh/' Vagrantfile # provision php
 sed -i.bak 's/\(\s*\)#\(.*\)apache\.sh/\1\2apache\.sh/' Vagrantfile # provision apache
 sed -i.bak 's/\(\s*\)#\(.*\)mysql\.sh/\1\2mysql\.sh/' Vagrantfile # provision mysql
+sed -i.bak 's/\(\s*\)#\(.*\)nodejs\.sh/\1\2nodejs\.sh/' Vagrantfile # provision nodejs
 rm Vagrantfile.bak
 
 echo "- Weitere Daten"
