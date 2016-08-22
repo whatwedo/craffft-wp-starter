@@ -5,16 +5,13 @@ install:
 	make build
 
 watch:
-	npm run craffft
+	npm run watch
 
 build:
-	npm run craffft:build
+	npm run build
 
 compile:
-	npm run craffft:compile
-
-debug:
-	npm run craffft:compile:log
+	npm run compile
 
 wordpress:
 	cd dist && rm -rf wp-{a*,b*,comun*,cont*,cr*,config-s*,i*,l*,m*,s*,t*} xmlrpc.php in* lic* lie* rea* wor*

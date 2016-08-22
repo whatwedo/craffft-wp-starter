@@ -7,10 +7,9 @@
     "standard": "^5.4"
   },
   "scripts": {
-    "craffft": "$(npm bin)/craffft",
-    "craffft:log": "$(npm bin)/craffft --outputLog",
-    "craffft:build": "$(npm bin)/craffft --build",
-    "craffft:compile": "$(npm bin)/craffft --build && $(npm bin)/craffft",
-    "craffft:compile:log": "$(npm bin)/craffft --outputLog --build && $(npm bin)/craffft --outputLog"
+    "compile": "craffft-compile",
+    "watch": "craffft-watch",
+    "build": "craffft-build",
+    "bump": "craffft-bump"
   }
 }
